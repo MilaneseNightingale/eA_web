@@ -1,0 +1,182 @@
+*{
+	/*border: 1px solid red;*/
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #202030;
+	color:#eeeeee;
+	font-family: 'Nunito', Monospace;
+}
+@media only screen and (min-width: 320px){
+	.container{
+		width :100%;
+		background: green;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
+	header{
+		width: 100%;
+		height: 100px;
+		background: #2c2c4c;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		padding-bottom: 10px;	
+	}
+	header .icon{
+		
+	}
+	header .icon h3{
+		z-index: 0;
+		margin: 0;
+		position: relative;
+		color: #fff;
+		font-size: 30px;
+		text-shadow: 0 0 20px #ff005b;
+		letter-spacing: 5px;
+	}
+	header .icon h3:after{
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0 20px;
+		z-index: -1;
+		color:#ff005b;
+		transform: translateX(-17%);
+		filter: blur(15px);
+	}
+	header .icon h3:before{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #fe3a8b;
+		z-index: -2;
+		opacity: 0.5;
+		filter: blur(30px);
+	}
+	.searchbar{
+		width:90%;
+		height: 40px;
+		padding: 1px;
+		box-shadow: inset 0px 0px 10px 2px #1a1a3a;
+		border-radius: 5px;
+		background: #202040;
+		display: flex;
+		align-items: center;
+		justify-content:space-around;
+		transition-duration: 300px;
+	}
+	.searchbar:hover{
+		background: #202040;
+		box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.2);
+	}
+	.searchbar input[type=text]{
+		flex:1;
+		height: 20px;
+		background: transparent;
+		padding: 10px;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		color: #25c5ca;
+		font-family: 'Nunito', Monospace;
+		font-size: 16px;
+		caret-color: #25c5ca;
+	}
+	.searchbar input[type=text]:focus,
+	.searchbar input[type=submit]:focus{
+		outline:none;
+	}
+	
+	.searchbar input[type=text]::-webkit-input-placeholder {color: #25a5aa}
+	.searchbar input[type=text]::-moz-placeholder          {color: #25a5aa}
+	.searchbar input[type=text]:-moz-placeholder           {color: #25a5aa}
+	.searchbar input[type=text]:-ms-input-placeholder      {color: #25a5aa}
+	
+
+	.searchbar input[type=text]:focus::-webkit-input-placeholder {color: transparent}
+	.searchbar input[type=text]:focus::-moz-placeholder          {color: transparent}
+	.searchbar input[type=text]:focus:-moz-placeholder           {color: transparent}
+	.searchbar input[type=text]:focus:-ms-input-placeholder      {color: transparent}
+	
+	.searchbar input[type=submit]{
+		background: #25c5da;
+		border:0px;
+		height: 90%;
+		width: 80px;
+		border-radius: 5px;
+		margin-right: 2px;
+		font-family: 'Nunito', Monospace;
+		font-size: 18px;
+		font-weight: 600;
+	}
+	section{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+	section .eventMain{
+		margin-top: 20px;
+		width:85%;
+		height: 70px;
+		background: url(../img/event1.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		border-radius: 4px;
+		box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+	}
+
+	section .eventMain .overlay{
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.7);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	section .eventMain .overlay h2{
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 640px){
+
+	header{
+		flex-direction: row;
+		padding: 0;
+	}
+	.searchbar{
+		width:60%;
+	}
+	section{
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	section .eventMain{
+		width: 45%;
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 1000px){
+
+	section .eventMain{
+		width: 200px;
+		height: 200px;
+		margin: 30px;
+	}
+}
