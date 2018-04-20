@@ -156,7 +156,7 @@ body{
 		color: #333;
 	}
 	.navPopup>form>label{justify-content: space-between; align-items: center;}
-	form input[type="text"],form input[type="date"],form select{
+	form input[type="text"],form input[type="date"],form input[type="time"],form select{
 		border: transparent;
 		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 		border-radius: 2px;

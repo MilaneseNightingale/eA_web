@@ -132,7 +132,7 @@ $('.createInvite').click(function(){
 	<form action="#" method="POST">\
 		<h3>Create Invite</h3>\
 		<label for="event-name">Event Name\
-			<select id="event-name">\
+			<select id="event-name" required="true">\
 				<option>Event 1</option>\
 				<option>Event 2</option>\
 				<option>Event 3</option>\
@@ -140,13 +140,13 @@ $('.createInvite').click(function(){
 			</select>\
 		</label>\
 		<label for="invite-label">Invite Label\
-			<input type="text" id="invite-label">\
+			<input type="text" id="invite-label" required="true">\
 		</label>\
 		<label for="invite-media">Upload image/video\
 			<input type="file" id="invite-media">\
 		</label>\
 		<label for="invite-desc">Invite Description\
-			<textarea type="text" id="invite-desc"></textarea>\
+			<textarea type="text" id="invite-desc" required="true"></textarea>\
 		</label>\
 		<input type="submit" value="Create">\
 	</form>' ;
@@ -197,19 +197,19 @@ var eA_dirArray = new Array();
 $(window).on('load', dirArrayUpdate());
 function dirArrayUpdate(){
 	var dir = document.querySelector('.directory').innerText;
-	eA_dirArray = dir.split(' / ');
+	eA_dirArray = dir.split('/');
 	console.log(eA_dirArray);
 }
 
 
 
-// window.addEventListener('load', async e =>{
-// 	if('serviceWorker' in navigator){
-// 		try{
-// 			navigator.serviceWorker.register('sw.js');
-// 			console.log('SW registered');
-// 		} catch(error){
-// 			console.log('SW registration failed');
-// 		}
-// 	}
-// });
+window.addEventListener('load', async e =>{
+	if('serviceWorker' in navigator){
+		try{
+			navigator.serviceWorker.register('sw.js');
+			console.log('SW registered');
+		} catch(error){
+			console.log('SW registration failed');
+		}
+	}
+});
