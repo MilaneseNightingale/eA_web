@@ -138,11 +138,11 @@ body{
 		z-index: 99;
 		top: 50%;
 		left: 50%;
-		padding: 20px;
+		padding: 5px;
 		transform: translate(-50%,-50%);
-		background: #f7f7f7;
-		border-radius: 2px;
-		box-shadow: 0px 1px 2px 4px rgba(10,10,10,0.2);
+		background: #f2f2f2;
+		border-radius: 4px;
+		box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.2);
 	}
 	.navPopup>form{
 		display: flex;
@@ -151,29 +151,71 @@ body{
 	.navPopup>form>*{
 		margin: 20px auto ;
 		display: flex;
-		width: 80%;
+		width: 95%;
 		justify-content: space-around;
 		color: #333;
 	}
-	input[type="text"], input[type="date"]{
+	.navPopup>form>label{justify-content: space-between; align-items: center;}
+	form input[type="text"],form input[type="date"],form select{
 		border: transparent;
-		box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 		border-radius: 2px;
 		padding: 0.6em;
-		width: 200px;
+		width: 160px;
+		color: #333;
+		font-family: 'Nunito', Monospace;
+	}
+	form select{
+		width: 175px;
+	}
+	form input[type="file"]{
+		width: 175px;
+		padding: 0;
+		height: 20px;
+	}
+	form textarea{
+		border: transparent;
+		border-radius: 2px;
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+		width: 165px;
+		padding: 5px;
 	}
 	input[type="submit"]{
 		height: 3em;
-		width: 150px;
+		width: 140px;
 		border: none;
 		box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
-		border-radius: 2px;
+		border-radius: 4px;
 		background: #3d8bed;
 		font-size: 16px;
 		color: #fff;
 	}
 	input[type="submit"]:hover{
 		background: #2d5bdd;
+	}
+	.navPopup div{
+		color: #333;
+		margin: 5px auto;
+		width: 90%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 5px;
+	}
+	.navPopup div :nth-child(1){
+		flex: 5;
+	}
+	.navPopup div :nth-child(2){
+		flex: 2;
+	}
+	.navPopup div :nth-child(3){
+		flex: 1;
+	}
+	.navPopup div:nth-child(even){
+		background: #ccc;
+	}
+	.fa-share-alt{
+		color: #555;
 	}
 
 	.swipe{
@@ -255,7 +297,9 @@ body{
 	.navPopup{
 		width: 450px;
 	}
-	
+	.navPopup>form>label{
+		width:80%;
+	}
 }
 
 @media only screen and (min-width: 640px){

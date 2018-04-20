@@ -41,39 +41,7 @@ var eventDetails = [
 	}
 ];
 
-
-var gColor = [
-	{
-		p : '#FFE53B',
-		s : '#FF2525'
-	},
-	{
-		p : '#08AEEA',
-		s : '#2AF598'
-	},
-	{
-		p : "#21D4FD",
-		s : "#5221FF"
-	},
-	{
-		p : "#FEE140",
-		s : "#F93A6E"
-	},
-	{
-		p : "#C850BA",
-		s : "#FFCC70"
-	},
-	{
-		p : "#17EAD9",
-		s : "#6078EA"
-	},
-	{
-		p : "#29badc",
-		s : "#2d5bdd"
-	}
-];
-
-
+// populating the page with main events
 
 const eA_events = document.querySelector("#events");
 
@@ -85,16 +53,9 @@ function eA_mainEventPopulate(eventDetails) {
 			style="background-image: url('+ eventDetails[i].pic +');">\
 			<h4 data-num="' + i + '">' + eventDetails[i].name + '</h4>\
 			</div>';
-			
 		}
-
 }
 eA_mainEventPopulate(eventDetails);
-
-
-// function randomColor(){
-// 	return (Math.floor(Math.random()* 7));
-// }
 
 
 $(".eventMain").click(function(e) {
@@ -103,20 +64,21 @@ $(".eventMain").click(function(e) {
 	for(let i = 0; i < eventDetails[subIndex].sub.length; i++ ){
 		eA_events.innerHTML += '<div class="sub"><p>' + eventDetails[subIndex].sub[i] + '</p></div>';
 	}
-	document.querySelector(".directory").innerHTML += '<span data-href="'+ eventDetails[subIndex].name +'" > ' + eventDetails[subIndex].name +' /</span>'
+	document.querySelector(".directory").innerHTML += '<span data-href="'+ eventDetails[subIndex].name +'" > ' + eventDetails[subIndex].name +' /</span>';
 	dirClick();
+	dirArrayUpdate();
 });
 
+//  Directory structure in events
 
 function dirClick() {
 	$(".directory>*").on('click', function(e) {
 		console.log(e);
-		console.log(e.currentTarget.attributes[0].value);
-		
+		console.log(e.currentTarget.attributes[0].value);		
 	});
-		
 }; dirClick();
 
+// Fab button for navActivity on mobile
 
 $('#fab-button').click(function() {
 	var delay = -50;
@@ -129,6 +91,8 @@ $('#fab-button').click(function() {
 	$('#fab-button').toggleClass('fab-rotate');
 });
 
+// Grid button for navActivity on desktop
+
 $('#grid-button').click(function() {
 	$('#navActivity').slideToggle();
 	$('.backLight').fadeIn();
@@ -138,9 +102,87 @@ $('.backLight').click(function() {
 	$('.backLight').fadeOut();
 });
 
-
-
 $('.newEvents').click(function() {
+	document.getElementById("navPopup").innerHTML = '\
+	<form action="#" method="POST">\
+		<h3>Create New Event</h3>\
+		<label for="event-name">Event Name\
+			<input type="text" id="event-name" required="true">\
+		</label>\
+		<label for="start-date">Start date\
+			<input type="date" id="start-date" required="true">\
+		</label>\
+		<label for="end-date">End date\
+			<input type="date" id="end-date">\
+		</label>\
+		<label for="start-time">Start time\
+			<input type="time" id="start-time">\
+		</label>\
+		<label for="end-time">End time\
+			<input type="time" id="end-time">\
+		</label>\
+		<input type="submit" value="Create">\
+	</form>' ;
+	$('.navPopup').slideDown();
+	$('.backDark').fadeIn();
+});
+
+$('.createInvite').click(function(){
+	document.getElementById("navPopup").innerHTML = '\
+	<form action="#" method="POST">\
+		<h3>Create Invite</h3>\
+		<label for="event-name">Event Name\
+			<select id="event-name">\
+				<option>Event 1</option>\
+				<option>Event 2</option>\
+				<option>Event 3</option>\
+				<option>Event 4</option>\
+			</select>\
+		</label>\
+		<label for="invite-label">Invite Label\
+			<input type="text" id="invite-label">\
+		</label>\
+		<label for="invite-media">Upload image/video\
+			<input type="file" id="invite-media">\
+		</label>\
+		<label for="invite-desc">Invite Description\
+			<textarea type="text" id="invite-desc"></textarea>\
+		</label>\
+		<input type="submit" value="Create">\
+	</form>' ;
+
+	$('.navPopup').slideDown();
+	$('.backDark').fadeIn();
+});
+
+$('.myEvents').click(function(){
+
+	var eA_myEvents = [
+		{ 
+			name: 'Hackathon',
+			date:  '20-Feb'
+		},
+		{
+			name: 'Trip to Goa',
+			date: '30-Mar'
+		},
+		{
+			name: 'Prashant\'s mirrage',
+			date: '07-Apr'
+		},
+		{
+			name: 'Painting Exhibition',
+			date: '09-Dec'
+		}];
+		document.getElementById("navPopup").innerHTML = '';
+	for(let i = 0; i< eA_myEvents.length; i++){
+		document.getElementById("navPopup").innerHTML += '\
+		<div class="my-event-inst">\
+			<p>'+ eA_myEvents[i].name +'</p>\
+			<p>'+ eA_myEvents[i].date +'</p>\
+			<i class="fas fa-share-alt"></i>\
+		</div>';
+	}
 	$('.navPopup').slideDown();
 	$('.backDark').fadeIn();
 });
@@ -148,6 +190,18 @@ $('.backDark').click(function() {
 	$('.navPopup').slideUp();
 	$('.backDark').fadeOut();
 });
+
+
+
+var eA_dirArray = new Array();
+$(window).on('load', dirArrayUpdate());
+function dirArrayUpdate(){
+	var dir = document.querySelector('.directory').innerText;
+	eA_dirArray = dir.split(' / ');
+	console.log(eA_dirArray);
+}
+
+
 
 // window.addEventListener('load', async e =>{
 // 	if('serviceWorker' in navigator){
