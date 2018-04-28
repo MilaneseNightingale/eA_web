@@ -1,11 +1,11 @@
-*{
-	/*border: 1px solid red;*/
-}
+/* *{
+	border: 1px solid red;
+} */
 
 body{
 	margin: 0;
 	padding: 0;
-	background: #eee;
+	background: #eeeefa;
 	font-family: 'Nunito', Monospace;
 }
 @media only screen and (min-width: 320px){
@@ -35,6 +35,8 @@ body{
 		position: relative;
 		color: #fff;
 		font-size: 32px;
+		font-weight: 400;
+		text-align: center;
 	}
 	.searchbar{
 		width:90%;
@@ -99,10 +101,11 @@ body{
 		display: flex;
 		position: fixed;
 		bottom: 60px;
-		right: 10px;
+		left: 100%;
+		width: 190px;
 		flex-direction: column;
 		z-index: 10;
-		overflow: hidden;
+		/* overflow: hidden; */
 	}
 	.navActivity div{
 		margin: 4px 0px;
@@ -130,19 +133,28 @@ body{
 		height: 100%;
 		background: rgba(0, 0, 0, 0.6);
 		z-index: 50;
+		overflow-y: scroll;
 	}
 	.navPopup{
 		display: none;
 		position: fixed;
 		width: 90%;
 		z-index: 99;
-		top: 50%;
+		top: 40px;
 		left: 50%;
 		padding: 5px;
-		transform: translate(-50%,-50%);
+		transform: translate(-50%,0%);
 		background: #f2f2f2;
 		border-radius: 4px;
 		box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.2);
+	}
+	#navClose{
+		position: absolute;
+		top: 10px;
+		right: 12px;
+		color: #ddd;
+		cursor: pointer;
+		font-size: 20px;
 	}
 	.navPopup>form{
 		display: flex;
@@ -195,7 +207,7 @@ body{
 	}
 	.navPopup div{
 		color: #333;
-		margin: 5px auto;
+		margin: 20px auto;
 		width: 90%;
 		display: flex;
 		justify-content: space-between;
@@ -211,15 +223,12 @@ body{
 	.navPopup div :nth-child(3){
 		flex: 1;
 	}
-	.navPopup div:nth-child(even){
-		background: #ccc;
-	}
 	.fa-share-alt{
 		color: #555;
 	}
 
 	.swipe{
-		transform: translate(100%, 0%);
+		transform: translate(-100%, 0%);
 	}
 	.main{
 		width: 100%;
@@ -235,7 +244,7 @@ body{
 		border-bottom: 2px solid #666;
 	}
 
-	section.events{
+	.events{
 		width: 100%;
 		display: flex;
 		flex-direction: row;
@@ -266,13 +275,24 @@ body{
 		font-size: 24px;
 		font-weight: 400;
 	}
+	.events .sub-group{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;	
+	}
+	.events .sub-group{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		/* grid-template-rows: repeat(5, 1fr); */
+		grid-gap: 10px;
+	}
 	.sub{
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		height: 25px;
 		padding: 10px 20px;
-		margin: 10px;
 		color:#fff;
 		background:#3d8bed;
 		border-radius: 5px;
@@ -286,6 +306,199 @@ body{
 	.sub p{
 		margin: 0;
 		padding: 0;
+	}
+	.myEvents-sideBar{
+		display: none;
+	}
+
+	/* service results */
+
+
+	.sevice-results{
+		margin: 0 auto;
+		display: flex;
+		width: 90%;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.sevice-results .top-shops,
+	.sevice-results .top-eventhandlers{
+		width: 100%;
+		position: relative;
+		padding: 20px;
+	}
+	.sevice-results .top-shops .shops,
+	.sevice-results .top-eventhandlers .eventhandlers{
+		display: flex;
+		flex-direction: column;
+	}
+	.result-card{
+		background: white;
+		width: 100%;
+		height: 60px;
+		margin: 10px 0;
+		border-radius: 4px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition-duration: 300ms;
+		cursor: pointer;
+		padding: 10px;
+		box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.2);
+	}
+	.result-card:hover{
+		box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.2);
+	}
+	.result-card img{
+		height: 100%;
+	}
+	.result-card .short-detail div:nth-child(2){
+		color: #666;
+		font-size: 14px;
+	}
+
+
+	/* My events details page*/
+	.myEvents-details{
+		/* background: red; */
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.myEvents-details>div{
+		width: 90%;
+	}
+	.myEvents-details h4{
+		color: #444;
+	}
+	.myEvents-details .event-name{
+		text-align: center;
+		padding: 10px;
+		font-size: 20px;
+		background: #4c73ff;
+		color: #fff;
+		border-radius: 2px;
+		position: relative;
+	}
+	.myEvents-details .event-name .fa-share-alt{
+		color: #eee;
+		position: absolute;
+		right: 10px;
+		top: 12px;
+	}
+	.myEvents-details .schedule{
+		display: flex;
+		justify-content: space-between;
+	}
+	.myEvents-details .schedule .start-time,
+	.myEvents-details .schedule .end-time,
+	.myEvents-details .venue{
+		display: flex;
+		flex-direction: row;
+		margin: 10px 0;
+	}
+	.myEvents-details icon{
+		padding: 0 10px 0 0;
+		font-size: 20px;
+	}
+	.schedule .start-time icon{
+		color: #50cf90;
+	}
+	.schedule .end-time icon{
+		color: #df5050;
+	}
+	.myEvents-details .venue icon{
+		color: #777;
+	}
+	.schedule .start-time div,
+	.schedule .end-time div{
+		display: flex;
+		flex-direction: column;
+	}
+	.schedule .start-time div time,
+	.schedule .end-time div time,
+	.venue .venue-name{
+		font-size: 16px;
+		color: #222;
+	}
+	.schedule .start-time div date,
+	.schedule .end-time div date,
+	.venue .venue-address{
+		font-size: 14px;
+		color: #666;
+		line-height: 12px;
+	}
+	.myEvents-details .sevices{
+		width: 100%;
+	}
+	.myEvent-eventhandlers .eventhandlers,
+	.myEvent-shops .shops{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	.myEvent-eventhandlers .result-card,
+	.myEvent-shops .result-card{
+		width: 100%;
+	}
+	.myEvents-details .myEvent-items ul li{
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		/* border-bottom: 1px solid #999; */
+		padding: 10px;
+	}
+	.myEvents-details .myEvent-items ul li:nth-child(odd){
+		background: #ddf;
+	}
+	.myEvents-details .myEvent-items input[type=checkbox]{
+		display: none;
+	}
+	
+	.myEvents-details .myEvent-items input[type=checkbox] + label{
+		display: block;
+		cursor: pointer;
+	}
+	.myEvents-details .myEvent-items input[type=checkbox] + label::before{
+		content: '\2714';
+		border: 0.1em solid #2d5bfd;
+		border-radius: 3px;
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.3em;
+		padding-bottom: 0.2em;
+		padding-left: 0.2em;
+		color: transparent;
+		vertical-align: bottom;
+		transition-duration: 200ms;
+	}
+	.myEvents-details .myEvent-items input[type=checkbox]:checked + label::before{
+		color: white;
+		background: #2d5bfd;
+	}
+	.myEvents-details .myEvent-items input[type=checkbox]:checked + label{
+		text-decoration: line-through;
+		color: #777;
+	}
+	.myEvents-details .myEvent-items input[type=checkbox] + label:active::before{
+		transform: scale(0);
+	}
+	.myEvents-details .result-card .short-detail{
+		width: 65%;
+	}
+	.myEvents-details .myEvent-items ul li .fa-times{
+		color: #888;
+		cursor: pointer;
+		padding: 5px;
+		font-size: 18px;
 	}
 }
 
@@ -306,10 +519,12 @@ body{
 
 	header{
 		justify-content: space-around;
-		height: 200px;
 	}
-	.searchbar{
-		width:60%;
+	header .icon{
+		width: 25%;
+	}
+	header .searchbar{
+		width:50%;
 	}
 	section.events{
 		flex-direction: row;
@@ -323,17 +538,49 @@ body{
 	.eventMain h4{
 		font-size: 28px;
 	}
+	.sevice-results .top-shops .shops,
+	.sevice-results .top-eventhandlers .eventhandlers{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.result-card{
+		width: 45%;
+	}
+
+	/* My Event details page */
+	.myEvents-details{
+		justify-content: space-around;
+		align-items: baseline;
+	}
+	.myEvents-details .services{
+		width: 45%;
+	}
+	.myEvent-eventhandlers .result-card,
+	.myEvent-shops .result-card{
+		width: 100%;
+	}
+	.myEvents-details .myEvent-items{
+		width: 45%;
+	}
 }
+
+
 @media only screen and (min-width: 720px){
 	.events .eventMain{
 		width: 40%;
 		height: 120px;
 	}
+
+	
 }
 
 @media only screen and (min-width: 900px){
 	header{
-		padding-bottom: 90px;
+		padding-bottom: 0px;
+		flex-direction: row;
+		justify-content: flex-start;
 	}
 	.backLight{
 		display: none;
@@ -350,8 +597,9 @@ body{
 		top: 50px;
 		right: 20px;
 		width: 250px;
-		height: 130px;
+		height: 95px;
 		padding: 20px;
+		left:auto;
 		background-color: #fff;
 		border-radius: 3px;
 		box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.2);
@@ -389,9 +637,6 @@ body{
 		border: 1px solid #ccc;
 		color: #666;
 	}
-	.swipe{
-		transform: translate(0%,0%);
-	}
 	.navActivity div:hover{
 		background: linear-gradient(120deg, #0151ff, #29badc);
 		color: #fff;
@@ -411,35 +656,219 @@ body{
 	.navActivity div:hover :nth-child(2){
 		background-color: transparent;
 	}
+	.navActivity .myEvents{
+		display: none;
+	}
+
+
+
+	.mainEvent-sidebar{
+		display: block;
+		position: fixed;
+		left:0;
+		top: 60%;
+		transform: translate(0%,-50%);
+	}
+	.mainEvent-sidebar .mainEvent{
+		background: #262E53;
+		margin: 0;
+		padding: 12px 20px;
+		color: #ddd;
+		text-align: center;
+		cursor: pointer;
+		border-bottom: 1px solid #363E63;
+	}
+	.mainEvent-sidebar .mainEvent:hover{
+		background: #363E63;
+	}
+	.mainEvent-sidebar .mainEvent p{
+		margin: 0;
+	}
 	.main{
-		width: 80%;
-		background-color:#fff;
-		padding: 40px 0;
+		width: 50%;
+		padding: 20px;
+		transition-duration: 1s;
+		/* height: 450px; */
+		/* overflow-y: scroll; */
+	}
+	.sub-group{
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 20px;
+		/* height: 100%; */
+		/* background: url(../img/forTest.jpg); */
+		background-size: cover;
+	}
+	.sub-group div{
+		border-radius: 0px;
+		/* box-shadow: inset 0px 0px 10px 2px rgba(0, 0, 0, 0.4); */
+		height: auto;
+		/* background: transparent; */
+		padding: 10px;
+	}
+	
+	.grid-rand1 div:nth-child(1){
+		grid-row: span 2;
+	}
+	.grid-rand1 div:nth-child(3){
+		grid-column: span 2;
+	}
+	.grid-rand1 div:nth-child(4){
+		grid-row: span 2;
+	}
+	.grid-rand1 div:nth-child(6){
+		grid-row: span 3;
+	}
+
+
+	.grid-rand2 div:nth-child(2){
+		grid-row: span 2;
+	}
+	.grid-rand2 div:nth-child(3){
+		grid-column: span 2;
+	}
+	.grid-rand2 div:nth-child(4){
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+	.grid-rand2 div:nth-child(5){
+		grid-row: span 3;
+	}
+
+
+	.grid-rand0 div:nth-child(1){
+		grid-row: span 2;
+	}
+	.grid-rand0 div:nth-child(2){
+		grid-column: span 2;
+	}
+	.grid-rand0 div:nth-child(5){
+		grid-row: span 2;
+	}
+	.grid-rand0 div:nth-child(6){
+		grid-row: span 3;
+	}
+
+
+	.myEvents-sideBar{
+		display: block;
+		position: absolute;
+		top: 150px;
+		height: calc(100vh - 150px);
+		right: 0px;
+		padding: 20px;
+		border-left: 1px solid #bbb;
+		border-bottom: 1px solid #bbb;
+		overflow-y: scroll;
+	}
+	.myEvent-card{
+		width: 150px;
+		height: 150px;
 		border-radius: 3px;
-		box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.2);
-		z-index: 200;
-	}
-	.directory{
-		padding: 0px 20px;
-	}
-	.directory span{
-		color: #444;
-		font-weight: 600;
-	}
-	section.events{
-		margin: auto;
-		width: 80%;
-		flex-wrap: wrap;
-		padding: 40px 0;
-	}
-	.eventMain{
-		width: 40%;
-		height: 120px;
+		color: #555;
+		background-color: #fff;
+		box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+		transition-duration:300ms;
+		transition: color 0.3s;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		text-align: center;
 		justify-content: space-around;
-		margin: 20px auto;
+		align-items: center;
 		cursor: pointer;
-	}	
+		margin: 20px 0;
+	}
+	.myEvent-card:hover{
+		background: linear-gradient(45deg, #bd6bad, #0151ff);
+		box-shadow: 0px 0px 30px 3px rgba(40, 80, 240, 0.3);
+		color: #fff;
+	}
+	.completed-events .myEvent-card:hover{
+		background: linear-gradient(45deg, #FACE61, #F72D1C);
+		box-shadow: 0px 0px 30px 3px rgba(240, 80, 20, 0.3);
+	}
+	.myEvent-card date{
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+	.myEvent-card date .day{
+		font-size: 48px;
+		font-weight: 200;
+	}
+	.myEvent-card date .month-time{
+		font-size: 16px;
+	}
+	.myEvent-card .time-line{
+		width: 70%;
+		height: 4px;
+		background: rgba(0,0,0,0.2);
+		border-radius: 100px;
+	}
+	.myEvent-card .time-line .current{
+		width: 50%;
+		height: 4px;
+		background: rgba(0,0,0,0.5);
+		border-radius: 100px;
+	}
+	.myEvent-card:hover .time-line{
+		background: rgba(255,255,255,0.3);
+	}
+	.myEvent-card:hover .time-line .current{
+		background: rgba(255,255,255,0.8);
+	}
+
+	.result-card{
+		width: 90%;
+	}
+/* my event-details */
+	.myEvents-details{
+		justify-content: flex-start;
+		align-items: baseline;
+	}
+	.myEvents-details .services{
+		width: 90%;
+	}
+	.myEvents-details .result-card{
+		width: 100%;
+	}
+	.myEvents-details .myEvent-items{
+		width: 90%;
+	}
+}
+
+
+
+@media only screen and (min-width: 1100px){
+	.main{
+		width: 60%;
+	}
+	.result-card{
+		width: 45%;
+	}
+
+	/* My events details */
+
+	.myEvents-details{
+		justify-content: space-around;
+		align-items: baseline;
+	}
+	.myEvents-details .services{
+		width: 45%;
+	}
+	.myEvents-details .result-card{
+		width: 100%;
+	}
+	.myEvents-details .myEvent-items{
+		width: 45%;
+	}
+}
+
+
+@media only screen and (min-width: 1200px){
+	.sub-group{
+		grid-template-columns: repeat(4, 1fr);
+	}
 }

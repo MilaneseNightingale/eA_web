@@ -6,8 +6,9 @@
     <title>EventArgs</title>
 	<link rel="icon" href="img/icon.png">
 	<link rel="stylesheet" href="css/style.css" media="screen" title="no title">
-	<link rel="manifest" href="manifest.json">
-  	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+	<!-- <link rel="manifest" href="manifest.json"> -->
+	  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
 </head>
 <body>
@@ -21,9 +22,9 @@
 		</header>
 	</div>
 	<div class="navActivity" id="navActivity">
-		<div class="createInvite swipe"><p>Create Invite</p><i class="far fa-envelope-open"></i></div>
-		<div class="newEvents swipe"><p>Create New Event</p><i class="far fa-flag"></i></div>
-		<div class="myEvents swipe"><p>My Events</p><i class="far fa-calendar-alt"></i></div>
+		<div class="createInvite"><p>Create Invite</p><i class="far fa-envelope-open"></i></div>
+		<div class="newEvents"><p>Create New Event</p><i class="far fa-flag"></i></div>
+		<div class="myEvents"><p>My Events</p><i class="far fa-calendar-alt"></i></div>
 	</div>
 	<div id="fab-button">
 		<i class="fas fa-plus"></i>
@@ -31,22 +32,209 @@
 	<div id="grid-button">
 		<i class="fas fa-th"></i>
 	</div>
-	<div class="backDark"></div>
+	<div class="backDark">
+		<i class="fas fa-times" id="navClose"></i>
+	</div>
 	<div class="backLight"></div>
 	<div class="navPopup" id="navPopup">
 		<!-- fill with js -->
-	</div> 
-	<div class="main">
-		<!-- <div class="instruct"></div> -->
-		<div class="directory">
-			<i class="fas fa-arrow-left"></i>
-			<span data-href="eventDetails" >home /</span>
-		</div>
-		<section class="events" id="events">
-			<!-- Main events -->
-
-		</section>
 	</div>
+	<div class="mainEvent-sidebar">
+		
+	</div>
+	
+	<div class="main" id="main">
+		
+		<!-- main view -->
+		<!-- <div class="sevice-results">
+			// buttons to add to my events or create new event
+			<div class="top-shops">
+				<p>Top Shops</p>
+				<div class="shops">
+					<div class="shop result-card">
+						<img src="images/icons/icon-512x512.png" alt="shop">
+						<div class="short-detail">
+							<div class="shop-name">Blaaah</div>
+							<div class="items-available">12 Items available</div>
+						</div>
+						<input type="checkbox" id="shop" name="Shop name" value=""> 
+					</div>
+					<div class="shop result-card">
+						<img src="images/icons/icon-512x512.png" alt="shop">
+						<div class="short-detail">
+							<div class="shop-name">Blaaah</div>
+							<div class="items-available">12 Items available</div>
+						</div>
+						<input type="checkbox" id="shop" name="Shop name" value="">
+					</div>
+				</div>
+				<a href="#">More..</a>
+			</div>
+			<div class="top-eventhandlers">
+				<p>Top Event Handlers</p>
+				<div class="eventhandlers">
+					<div class="eventhandler result-card"></div>
+					<div class="eventhandler result-card"></div>
+				</div>
+				<a href="#">More..</a>
+			</div>
+			<div class="item-results">
+				<p>Item name</p>
+				<div class="shop result-card"></div>
+			</div>
+		</div>
+		 -->
+		
+
+		 <!-- <div class="myEvents-details">
+			<div class="event-name">Event Name
+				<i class="fas fa-share-alt"></i>
+			</div>
+			
+			<div class="schedule">
+				<div class="start-time">
+					<icon>
+						<i class="far fa-clock"></i>
+					</icon>
+					<div>
+						<time>Wednesday at 08:30</time>
+						<date>April 12, 2018</date>
+					</div>
+				</div>
+				<div class="end-time">
+					<icon>
+						<i class="far fa-clock"></i>
+					</icon>
+					<div>
+						<time>Wednesday at 21:30</time>
+						<date>April 12, 2018</date>
+					</div>
+				</div>
+			</div>
+
+			<div class="venue">
+				<icon>
+					<i class="fas fa-map-marker-alt"></i>
+				</icon>
+				<div>
+					<div class="venue-name">Falana Thekana</div>
+					<div class="venue-address">Chelaana gali, thekana sheher, banglore</div>
+				</div>
+			</div>
+			<div class="services">
+				<div class="myEvent-eventhandlers">
+					<h4>Event Handlers</h4>
+					<div class="eventhandlers">
+						<div class="eventhandler result-card"></div>
+						<div class="eventhandler result-card"></div>
+					</div>
+				</div>
+
+				<div class="myEvent-shops">
+					<h4>Shops</h4>
+					<div class="shops">
+						<div class="shop result-card">
+							<img src="images/icons/icon-512x512.png" alt="shop">
+							<div class="short-detail">
+								<div class="shop-name">Blaaah</div>
+								<div class="items-available">12 Items available</div>
+							</div> 
+						</div>
+						<div class="shop result-card">
+							<img src="images/icons/icon-512x512.png" alt="shop">
+							<div class="short-detail">
+								<div class="shop-name">Blaaah</div>
+								<div class="items-available">12 Items available</div>
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="myEvent-items">
+				<h4>Items</h4>
+				<ul>
+					<li>
+						<input type="checkbox" id="item1" value="item-name">
+						<label for="item1">Item name</label>
+						<i class="fas fa-times"></i>
+					</li>
+					<li>
+						<input type="checkbox" id="item2" value="item-name">
+						<label for="item2">Item name</label>
+						<i class="fas fa-times"></i>
+					</li>
+					<li>
+						<input type="checkbox" id="item3" value="item-name">
+						<label for="item3">Item name</label>
+						<i class="fas fa-times"></i>
+					</li>
+					<li>
+						<input type="checkbox" id="item4" value="item-name">
+						<label for="item4">Item name</label>
+						<i class="fas fa-times"></i>
+					</li>
+					<li>
+						<input type="checkbox" id="item5" value="item-name">
+						<label for="item5">Item name</label>
+						<i class="fas fa-times"></i>
+					</li>
+				</ul>
+			 </div>
+
+			 <div class="feature">
+				<h4>Addd Features seperately for each event</h4>
+			 </div>
+
+		 </div>
+		 -->
+
+		 <div class="shop-details-card">
+			<img src="" alt="">
+			<div>
+				<div class="shop-name"></div>
+			</div>
+		 </div>
+
+
+	</div>
+
+	<div class="myEvents-sideBar">
+			<!-- My events on Desktop -->
+			<div class="live-events">
+				<p>Live Events</p>
+				<div class="myEvent-card">
+					<date><span class="day">23</span><span class="month-time"> Apr </br> 10:30 </span></date>
+					<ename>Event name</ename>
+					<div class="time-line"><div class="current"></div></div>
+				</div>
+				<div class="myEvent-card">
+					<date><span class="day">24</span><span class="month-time"> Apr </br> 10:30 </span></date>
+					<ename>Event name</ename>
+					<div class="time-line"><div class="current"></div></div>
+				</div>
+			</div>
+			<div class="upcoming-events">
+				<p>Upcoming Events</p>
+				<div class="myEvent-card">
+					<date><span class="day">09</span><span class="month-time"> May </br> 11:30 </span></date>
+					<ename>Event name</ename>
+					<div class="end-date">Till: 29-May</div>
+				</div>
+				<div class="myEvent-card">
+					<date><span class="day">15</span><span class="month-time"> Aug </br> 12:30 </span></date>
+					<ename>Event name</ename>
+					<div class="end-date">Till: 25-Aug</div>
+				</div>
+			</div>
+			<div class="completed-events">
+				<p>Completed Events</p>
+				<div class="myEvent-card">
+					<date><span class="day">25</span><span class="month-time"> Jan </br> 07:30 </span></date>
+					<ename>Event name</ename>
+					<div class="end-date">Till: 29-Jan</div>
+				</div>
+			</div>
+		</div>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
